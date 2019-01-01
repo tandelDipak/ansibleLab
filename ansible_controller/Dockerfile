@@ -32,7 +32,7 @@ RUN echo "ansible ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/ansible
 EXPOSE 22
 
 # Install dependancy package for apt-add
-RUN apt-get install software-properties-common
+RUN apt-get install -y software-properties-common
 
 # Add ansible PPA
 RUN apt-add-repository ppa:ansible/ansible
@@ -41,5 +41,5 @@ RUN apt-add-repository ppa:ansible/ansible
 RUN apt-get update
 
 # Install Ansible
-RUN apt-get install ansible
+RUN apt-get install -y ansible
 
