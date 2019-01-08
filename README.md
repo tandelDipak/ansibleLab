@@ -28,4 +28,24 @@ ssh-keygen
 Now copy public key on all nodes using
 ssh-copy-id n1 (run once for each node)
 
- Deleted ansible folder, Added Dockerfile for ansible_controller and nodes in respective folders
+#perfome below action on ansible controller container
+sudo apt-get install vim
+mkdir ping
+cd ping
+touch ansible.cfg
+
+#copy this content in a ansible.cfg
+
+[defaults]
+remote_user = ansible
+host_key_checking = false
+inventory = inventory
+
+[privilege_escalation]
+become = True
+become_method = sudo
+become_user = root
+become_ask_pass = False
+
+[ssh_connection]
+pipelining=True
